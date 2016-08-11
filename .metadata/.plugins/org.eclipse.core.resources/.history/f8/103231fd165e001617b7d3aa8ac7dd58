@@ -1,0 +1,10 @@
+package bean;
+
+public class Customer
+{
+	private int accNo;
+	private String address;
+	private long phone;
+	private String occupation;
+
+}

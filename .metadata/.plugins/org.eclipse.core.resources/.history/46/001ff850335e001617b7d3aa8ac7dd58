@@ -1,0 +1,55 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import bean.Account;
+import connection.MyConnection;
+
+public class AccountDaoImpl implements AccountDao
+{
+
+	Connection con;
+	public AccountDaoImpl() throws ClassNotFoundException, SQLException
+	{
+		 con=new MyConnection().getConnection();
+		
+	}
+	@Override
+	public boolean validateAccount(Account a) throws SQLException 
+	{
+		PreparedStatement ps1=con.prepareStatement("select * from account where name=? and accNo=?");
+		ps1.setString(1,a.getName());
+		ps1.setInt(2,a.getAccNo());
+		ResultSet rs=ps1.executeQuery();
+		if(rs.first())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	@Override
+	public void getAccountBalance(Account a) throws SQLException 
+	{
+		PreparedStatement ps2=con.prepareStatement("select * from accountView where accNo=?");
+		ps2.setInt(1,a.getAccNo());
+		ResultSet rs=ps2.executeQuery();
+		while(rs.next())
+		{
+			Account acc=new Account();
+			acc.setAccNo(rs.getInt(0));
+			acc.setName(rs.getString("name"));
+			acc.setAccountType(rs.getString("accountType"));
+			acc.setType(rs.getString("type"));
+			acc.setBalance(rs.getInt("balance"));
+		}
+	}
+	
+	
+
+}

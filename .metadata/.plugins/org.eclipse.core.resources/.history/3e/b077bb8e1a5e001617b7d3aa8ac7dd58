@@ -1,0 +1,12 @@
+package connection;
+
+public class MyConnection 
+{
+	public static Connection con;
+	public MyConnection() throws ClassNotFoundException
+	{
+		Class.forName("com.mysql.jdbc.Driver");
+		
+	}
+
+}

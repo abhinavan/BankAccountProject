@@ -1,0 +1,13 @@
+package dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import bean.Account;
+
+public interface AccountDao 
+{
+	public boolean validateAccount(Account a) throws SQLException;
+	public List<Account> getAccountBalance(int a) throws SQLException;
+	public void withdrawAmount(int accNo,int withdrawAmount,int password) throws SQLException;
+}

@@ -1,0 +1,20 @@
+package dao;
+
+import bean.Account;
+
+public class AccountDaoImpl implements AccountDao
+{
+
+	public AccountDaoImpl()
+	{
+		
+	}
+	@Override
+	public boolean validateAccount(Account a) 
+	{
+		
+		return false;
+	}
+	
+
+}

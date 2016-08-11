@@ -1,0 +1,12 @@
+package dao;
+
+import java.sql.SQLException;
+
+import bean.Account;
+
+public interface AccountDao 
+{
+	public boolean validateAccount(Account a) throws SQLException;
+	public void getAccountBalance(Account a);
+
+}

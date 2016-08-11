@@ -1,0 +1,10 @@
+package connection;
+
+public class MyConnection 
+{
+	public MyConnection()
+	{
+		Class.forName("com.mysql.jdbc.Driver");
+	}
+
+}

@@ -1,0 +1,23 @@
+package dao;
+
+import java.sql.PreparedStatement;
+
+import bean.Account;
+import connection.MyConnection;
+
+public class AccountDaoImpl implements AccountDao
+{
+
+	public AccountDaoImpl()
+	{
+		PreparedStatement ps1=new MyConnection().getConnection()
+	}
+	@Override
+	public boolean validateAccount(Account a) 
+	{
+		
+		return false;
+	}
+	
+
+}

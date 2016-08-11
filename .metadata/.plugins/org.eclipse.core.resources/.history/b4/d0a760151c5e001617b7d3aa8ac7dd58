@@ -1,0 +1,27 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import bean.Account;
+import connection.MyConnection;
+
+public class AccountDaoImpl implements AccountDao
+{
+
+	Connection con;
+	public AccountDaoImpl() throws ClassNotFoundException, SQLException
+	{
+		 con=new MyConnection().getConnection();
+		
+	}
+	@Override
+	public boolean validateAccount(Account a) 
+	{
+		PreparedStatement ps1=con.prepareStatement("select * from account where name=? and accNo=?");
+		return false;
+	}
+	
+
+}
